@@ -5,12 +5,12 @@
 ################################################################################
 
 # Stop and disable apt-daily upgrade services;
-systemctl stop apt-daily.timer
-systemctl disable apt-daily.timer
-systemctl disable apt-daily.service
-systemctl stop apt-daily-upgrade.timer
-systemctl disable apt-daily-upgrade.timer
-systemctl disable apt-daily-upgrade.service
+# #systemctl stop apt-daily.timer
+# #systemctl disable apt-daily.timer
+# #systemctl disable apt-daily.service
+# #systemctl stop apt-daily-upgrade.timer
+# #systemctl disable apt-daily-upgrade.timer
+# #systemctl disable apt-daily-upgrade.service
 
 # Enable retry logic for apt up to 10 times
 echo "APT::Acquire::Retries \"10\";" > /etc/apt/apt.conf.d/80-retries
@@ -44,4 +44,4 @@ apt-get install jq
 
 # Install apt-fast using quick-install.sh
 # https://github.com/ilikenwf/apt-fast
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+#bash -c "$(curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"

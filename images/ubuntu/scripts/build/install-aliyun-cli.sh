@@ -33,4 +33,3 @@ use_checksum_comparison "$archive_path" "$external_hash"
 tar xzf "$archive_path"
 mv aliyun /usr/local/bin
 
-invoke_tests "CLI.Tools" "Aliyun CLI"

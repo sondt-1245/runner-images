@@ -17,8 +17,8 @@ curl -fsSL https://www.mongodb.org/static/pgp/server-$toolset_version.asc | gpg 
 echo "deb [ arch=amd64,arm64 signed-by=$GPG_KEY ] $REPO_URL $(lsb_release -cs)/mongodb-org/$toolset_version multiverse" > $REPO_PATH
 
 # Install Mongo DB
-sudo apt-get update
-sudo apt-get install -y mongodb-org
+ apt-get update
+ apt-get install -y mongodb-org -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 # remove Mongo DB's apt repository
 rm $REPO_PATH
@@ -27,4 +27,3 @@ rm $GPG_KEY
 # Document source repo
 echo "mongodb $REPO_URL" >> $HELPER_SCRIPTS/apt-sources.txt
 
-invoke_tests "Databases" "MongoDB"

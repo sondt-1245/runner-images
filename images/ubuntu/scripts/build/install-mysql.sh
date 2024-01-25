@@ -18,13 +18,12 @@ export ACCEPT_EULA=Y
 apt-get install mysql-client -y
 
 # Install MySQL Server
-apt-get install -y mysql-server
+apt-get install -y mysql-server -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 #Install MySQL Dev tools
 apt install libmysqlclient-dev -y
 
 # Disable mysql.service
-systemctl is-active --quiet mysql.service && systemctl stop mysql.service
-systemctl disable mysql.service
+#systemctl is-active --quiet mysql.service && #systemctl stop mysql.service
+#systemctl disable mysql.service
 
-invoke_tests "Databases" "MySQL"

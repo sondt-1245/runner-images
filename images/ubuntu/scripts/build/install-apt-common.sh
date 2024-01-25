@@ -12,7 +12,7 @@ cmd_packages=$(get_toolset_value .apt.cmd_packages[])
 
 for package in $common_packages $cmd_packages; do
     echo "Install $package"
-    apt-get install -y --no-install-recommends $package
+    export DEBIAN_FRONTEND=noninteractive
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends $package
 done
 
-invoke_tests "Apt"

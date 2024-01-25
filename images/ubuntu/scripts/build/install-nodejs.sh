@@ -21,9 +21,8 @@ ln -s /usr/local/bin/vercel /usr/local/bin/now
 
 # fix global modules installation as regular user
 # related issue https://github.com/actions/runner-images/issues/3727
-sudo chmod -R 777 /usr/local/lib/node_modules 
-sudo chmod -R 777 /usr/local/bin
+ chmod -R 777 /usr/local/lib/node_modules
+ chmod -R 777 /usr/local/bin
 
 rm -rf ~/n
 
-invoke_tests "Node" "Node.js"

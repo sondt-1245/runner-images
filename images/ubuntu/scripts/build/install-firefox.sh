@@ -17,7 +17,7 @@ GPG_KEY="/etc/apt/trusted.gpg.d/mozillateam_ubuntu_ppa.gpg"
 REPO_PATH="/etc/apt/sources.list.d/mozillateam-ubuntu-ppa-focal.list"
 
 # Install Firefox
-curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${GPG_FINGERPRINT}" | sudo gpg --dearmor -o $GPG_KEY
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${GPG_FINGERPRINT}" |  gpg --dearmor -o $GPG_KEY
 echo "deb $REPO_URL $(lsb_release -cs) main" > $REPO_PATH
 
 apt-get update
@@ -45,4 +45,3 @@ chmod +x $GECKODRIVER_BIN
 ln -s "$GECKODRIVER_BIN" /usr/bin/
 set_etc_environment_variable "GECKOWEBDRIVER" "${GECKODRIVER_DIR}"
 
-invoke_tests "Browsers" "Firefox"

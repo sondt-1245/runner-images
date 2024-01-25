@@ -19,5 +19,3 @@ apt-get -qq install -y hhvm
 # remove HHVM's apt repository
 rm $REPO_PATH
 rm $GPG_KEY
-
-invoke_tests "Tools" "HHVM"

@@ -26,8 +26,8 @@ echo "Install libpq-dev"
 apt-get install libpq-dev
 
 # Disable postgresql.service
-systemctl is-active --quiet postgresql.service && systemctl stop postgresql.service
-systemctl disable postgresql.service
+#systemctl is-active --quiet postgresql.service && #systemctl stop postgresql.service
+#systemctl disable postgresql.service
 
 rm /etc/apt/sources.list.d/pgdg.list
 rm /usr/share/keyrings/postgresql.gpg

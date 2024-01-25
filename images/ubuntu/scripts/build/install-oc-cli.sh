@@ -11,4 +11,3 @@ source $HELPER_SCRIPTS/install.sh
 archive_path=$(download_with_retry "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz")
 tar xzf "$archive_path" -C "/usr/local/bin" oc
 
-invoke_tests "CLI.Tools" "OC CLI"

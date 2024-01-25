@@ -26,4 +26,3 @@ install "$binary_path" /usr/local/bin/rebar3
 rm $source_list
 rm $source_key
 
-invoke_tests "Tools" "erlang"

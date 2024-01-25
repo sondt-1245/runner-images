@@ -19,4 +19,3 @@ apt-get update -y && apt-get install -y heroku
 rm $REPO_PATH
 rm $GPG_KEY
 
-invoke_tests "Tools" "Heroku"

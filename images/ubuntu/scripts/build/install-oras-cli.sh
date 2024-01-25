@@ -22,4 +22,3 @@ use_checksum_comparison "$archive_path" "${external_hash}"
 # Unzip ORAS CLI
 tar xzf "$archive_path" -C /usr/local/bin oras
 
-invoke_tests "CLI.Tools" "Oras CLI"

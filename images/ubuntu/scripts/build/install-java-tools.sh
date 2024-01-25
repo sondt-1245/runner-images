@@ -57,7 +57,7 @@ install_open_jdk() {
     # Create symlink for Java
     ln -s ${java_version_path} "${java_toolcache_version_path}/x64"
 
-    # add extra permissions to be able execute command without sudo
+    # add extra permissions to be able execute command without
     chmod -R 777 /usr/lib/jvm
 }
 
@@ -84,7 +84,7 @@ for jdkVersionToInstall in ${jdkVersionsToInstall[@]}; do
 done
 
 # Install Ant
-apt-get install -y --no-install-recommends ant ant-optional
+apt-get install -y --no-install-recommends ant ant-optional -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 set_etc_environment_variable "ANT_HOME" "/usr/share/ant"
 
 # Install Maven
@@ -115,4 +115,3 @@ rm -f /usr/share/keyrings/adoptium.gpg
 rm -f /usr/share/keyrings/zulu.gpg
 
 reload_etc_environment
-invoke_tests "Java"

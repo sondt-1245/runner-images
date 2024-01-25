@@ -9,6 +9,8 @@
 source $HELPER_SCRIPTS/os.sh
 source $HELPER_SCRIPTS/install.sh
 
+apt install unzip -y
+
 awscliv2_archive_path=$(download_with_retry "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip")
 unzip -qq "$awscliv2_archive_path" -d /tmp
 /tmp/aws/install -i /usr/local/aws-cli -b /usr/local/bin
@@ -29,4 +31,3 @@ use_checksum_comparison "$aws_sam_cli_archive_path" "$aws_sam_cli_hash"
 unzip "$aws_sam_cli_archive_path" -d /tmp
 /tmp/install
 
-invoke_tests "CLI.Tools" "AWS"

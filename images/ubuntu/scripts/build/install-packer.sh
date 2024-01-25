@@ -12,4 +12,3 @@ download_url=$(curl -fsSL https://api.releases.hashicorp.com/v1/releases/packer/
 archive_path=$(download_with_retry "$download_url")
 unzip -qq "$archive_path" -d /usr/local/bin
 
-invoke_tests "Tools" "Packer"

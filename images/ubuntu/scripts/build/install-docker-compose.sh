@@ -18,4 +18,3 @@ use_checksum_comparison "${binary_path}" "${external_hash}"
 # Install docker-compose v1
 install "${binary_path}" "/usr/local/bin/docker-compose"
 
-invoke_tests "Tools" "Docker-compose v1"

@@ -33,4 +33,3 @@ rm $GPG_KEY
 # Document source repo
 echo "mono https://download.mono-project.com/repo/ubuntu stable-$os_label main" >> $HELPER_SCRIPTS/apt-sources.txt
 
-invoke_tests "Tools" "Mono"

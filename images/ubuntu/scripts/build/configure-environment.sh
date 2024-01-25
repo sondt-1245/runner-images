@@ -19,19 +19,14 @@ set_etc_environment_variable "ACCEPT_EULA" "Y"
 mkdir -p /etc/skel/.config/configstore
 set_etc_environment_variable "XDG_CONFIG_HOME" '$HOME/.config'
 
-# Change waagent entries to use /mnt for swapfile
-sed -i 's/ResourceDisk.Format=n/ResourceDisk.Format=y/g' /etc/waagent.conf
-sed -i 's/ResourceDisk.EnableSwap=n/ResourceDisk.EnableSwap=y/g' /etc/waagent.conf
-sed -i 's/ResourceDisk.SwapSizeMB=0/ResourceDisk.SwapSizeMB=4096/g' /etc/waagent.conf
-
 # Add localhost alias to ::1 IPv6
-sed -i 's/::1 ip6-localhost ip6-loopback/::1     localhost ip6-localhost ip6-loopback/g' /etc/hosts
+#sed -i 's/::1 ip6-localhost ip6-loopback/::1     localhost ip6-localhost ip6-loopback/g' /etc/hosts
 
 # Prepare directory and env variable for toolcache
-AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
-mkdir $AGENT_TOOLSDIRECTORY
-set_etc_environment_variable "AGENT_TOOLSDIRECTORY" "${AGENT_TOOLSDIRECTORY}"
-chmod -R 777 $AGENT_TOOLSDIRECTORY
+#AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
+#mkdir $AGENT_TOOLSDIRECTORY
+#set_etc_environment_variable "AGENT_TOOLSDIRECTORY" "${AGENT_TOOLSDIRECTORY}"
+#chmod -R 777 $AGENT_TOOLSDIRECTORY
 
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
 # https://www.suse.com/support/kb/doc/?id=000016692
@@ -53,12 +48,12 @@ chmod +x $HELPER_SCRIPTS/invoke-tests.sh
 ln -s $HELPER_SCRIPTS/invoke-tests.sh /usr/local/bin/invoke_tests
 
 # Disable motd updates metadata
-sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
+#sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
 
-if [[ -f "/etc/fwupd/daemon.conf" ]]; then
-    sed -i 's/UpdateMotd=true/UpdateMotd=false/g' /etc/fwupd/daemon.conf
-    systemctl mask fwupd-refresh.timer
-fi
+#if [[ -f "/etc/fwupd/daemon.conf" ]]; then
+#    sed -i 's/UpdateMotd=true/UpdateMotd=false/g' /etc/fwupd/daemon.conf
+#    #systemctl mask fwupd-refresh.timer
+#fi
 
 # Disable to load providers
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834

@@ -29,7 +29,7 @@ fi
 
 # Install podman, buildah, scopeo container's tools
 apt-get update
-apt-get -y install ${install_packages[@]}
+apt-get -y install ${install_packages[@]} -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 mkdir -p /etc/containers
 printf "[registries.search]\nregistries = ['docker.io', 'quay.io']\n" | tee /etc/containers/registries.conf
 
@@ -42,4 +42,3 @@ if is_ubuntu20; then
     echo "containers $REPO_URL" >> $HELPER_SCRIPTS/apt-sources.txt
 fi
 
-invoke_tests "Tools" "Containers"

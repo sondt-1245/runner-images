@@ -32,7 +32,7 @@ rm -f /usr/local/bin/invoke_tests
 # remove apt mock
 prefix=/usr/local/bin
 for tool in apt apt-get apt-fast apt-key;do
-    sudo rm -f $prefix/$tool
+     rm -f $prefix/$tool
 done
 
 # after cleanup

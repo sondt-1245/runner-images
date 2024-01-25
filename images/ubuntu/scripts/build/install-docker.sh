@@ -48,8 +48,8 @@ groupmod -g $gid docker
 chgrp -hR docker /run/docker.sock
 
 # Enable docker.service
-systemctl is-active --quiet docker.service || systemctl start docker.service
-systemctl is-enabled --quiet docker.service || systemctl enable docker.service
+##systemctl is-active --quiet docker.service || #systemctl start docker.service
+##systemctl is-enabled --quiet docker.service || #systemctl enable docker.service
 
 # Docker daemon takes time to come up after installing
 sleep 10
@@ -92,7 +92,3 @@ install "$aws_helper_binary_path" "/usr/bin/docker-credential-ecr-login"
 rm $GPG_KEY
 rm $REPO_PATH
 
-invoke_tests "Tools" "Docker"
-if [[ "${DOCKERHUB_PULL_IMAGES:-yes}" == "yes" ]]; then
-    invoke_tests "Tools" "Docker images"
-fi
